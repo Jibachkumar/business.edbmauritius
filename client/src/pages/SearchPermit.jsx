@@ -1,126 +1,87 @@
-import React from "react";
-import profile from "../assets/profile.jpg";
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/themes/light.css";
+
 function SearchPermit() {
   return (
-    <div className="max-w-6xl h-[455px] overflow-y-auto overflow-x-auto mx-auto px-3 py-6">
-      <div className="border border-slate-100 w-md md:w-xl lg:w-5xl mx-auto rounded-md overflow-hidden">
-        <div className="border-b bg-slate-50 border-slate-300 px-4 py-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="font-semibold font-[Arial] text-slate-800 text-sm text-center sm:text-md">
-            Ministry of Labour and Industrial Relations
-          </h2>
-          <div className="md:flex lg:gap-[440px] mb-2 mt-2 font-[Arial]">
-            <p className="font-semibold text-sm text-slate-800">
-              Permit Number: WP NO: MOL-WP-2026-19775
-            </p>
-            <p className="text-sm py-1 font-semibold">
-              Status: <span className="text-green-700">Active</span>{" "}
-            </p>
-          </div>
-        </div>
+    <div className="w-full mt-3 px-4 md:mb-[233px] mb-40">
+      <div className="max-w-5xl mx-auto">
+        {/* Heading */}
+        <h2 className="text-lg font-bold text-gray-900 font-[Arial] mb-5">
+          Enter the details of the permit you are looking for
+        </h2>
 
-        <div className="px-2 mt-2 pb-6">
-          <div className="flex gap-x-6 font-[Arial]">
-            {/* 📄 Details — BELOW image on mobile, LEFT on desktop */}
-            <div className=" md:text-left grid gap-y-2 text-sm">
-              <div className="flex flex-col justify-center">
-                <div>
-                  <span className="font-semibold text-slate-800">Surname:</span>{" "}
-                  YADAV
-                </div>
-                <div>
-                  <span className="font-semibold text-slate-800">
-                    First Name:
-                  </span>{" "}
-                  Dipesh
-                </div>
-                <div>
-                  <span className="font-semibold text-slate-800">
-                    Nationality:
-                  </span>{" "}
-                  Nepalese
-                </div>
-              </div>
-            </div>
-            {/* 🖼 Image — TOP on mobile, RIGHT on desktop */}
-            <div className=" w-32 h-32 bg-slate-200 rounded-lg flex items-center justify-center text-xs text-slate-500 md:mx-0">
-              <img
-                src={profile}
-                alt="identity"
-                className="w-full h-full object-cover shadow"
+        {/* Form */}
+        <form className="grid grid-cols-1 md:grid-cols-3 md:gap-6 gap-4 md:ml-3 md:mr-24 mr-36">
+          {/* Permit Number */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-800 mb-1">
+              Permit Number
+            </label>
+            <input
+              type="text"
+              placeholder="Insert the permit number"
+              className="px-2 py-1.5 text-sm border border-gray-300 rounded-sm focus:ring-1 focus:ring-blue-500 focus:outline-none transition"
+            />
+          </div>
+
+          {/* Issued Date */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-800 mb-1">
+              Issued Date
+            </label>
+            <div className="relative">
+              <Flatpickr
+                options={{
+                  dateFormat: "Y-m-d",
+                  allowInput: true,
+                  onOpen: (selectedDates, dateStr, instance) => {
+                    const calendar = instance.calendarContainer;
+
+                    // Set popup width
+                    calendar.style.width = "300px";
+
+                    // Reduce the day size and spacing
+                    const days = calendar.querySelectorAll(".flatpickr-day");
+                    days.forEach((day) => {
+                      day.style.height = "25px"; // smaller height
+                      day.style.lineHeight = "20px"; // vertical align center
+                      day.style.margin = "1px"; // gap between days
+                      day.style.padding = "0"; // remove extra padding
+                    });
+                  },
+                }}
+                placeholder="Select a Date"
+                className="w-full px-2 py-1.5 text-sm border border-gray-300 rounded-sm focus:ring focus:ring-blue-500 focus:outline-none pr-10"
               />
-            </div>
-          </div>
-          <div className="mt-2 font-[Arial]">
-            <div className=" text-sm">
-              <span className="font-semibold text-slate-800">
-                Name of Employer:
-              </span>{" "}
-              D.G.Agrifarm Ltd
-            </div>
-            <div className=" text-sm">
-              <span className="font-semibold text-slate-800">Post Held:</span>{" "}
-              GENERAL WORKER
-            </div>
-          </div>
-          <div className="flex md:gap-3 mt-2 font-[Arial]">
-            <div className="text-sm">
-              <div>
-                <span className="font-semibold text-slate-800">
-                  Passport Number:
-                </span>{" "}
-                PA4924649
-              </div>
-              <div>
-                <span className="font-semibold text-slate-800">Gender:</span>{" "}
-                Male
-              </div>
-            </div>
-            <div className="text-sm font-[Arial]">
-              <div>
-                <span className="font-semibold text-slate-800">
-                  Date of Birth:
-                </span>{" "}
-                20/08/2001
-              </div>
-              <div>
-                <span className="font-semibold text-slate-800">Validity:</span>{" "}
-                From 17/02/2026{" "}
-                <span className="font-semibold text-slate-800">To</span>{" "}
-                17/02/2028
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="px-4 pb-8">
-          <h3 className="font-semibold mb-2">Conditions</h3>
-          <ol className="list-decimal font-[Arial] ml-1 space-y-1 text-[13px] text-black/95 leading-tight text-justify justified-text break-words">
-            <li>This permit is valid for the period indicated above.</li>
-            <li>
-              This permit is personal to the holder and is not transferable.
-            </li>
-            <li>
-              The holder is NOT permitted to seek or accept alternative
-              employment while in Mauritius or to engage in any trade, art or
-              gainful occupation.
-            </li>
-            <li>
-              This permit shall be kept by the holder and produced to any
-              authorised person on demand or within three days after demand at
-              such Police Station as may be specified by the authorised person
-              at the time of the demand.
-            </li>
-            <li>
-              The Minister for Employment may, at any time, vary or cancel this
-              permit.
-            </li>
-            <li>
-              In the event of any change of circumstances affecting the accuracy
-              of particulars submitted at the time of applying for this permit,
-              the holder shall, within fifteen days, notify particulars of such
-              change to the Minister for Employment.
-            </li>
-          </ol>
+              {/* Calendar Icon */}
+              <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+          </div>
+
+          {/* Permit Holder */}
+          <div className="flex flex-col">
+            <label className="text-xs font-medium text-gray-800 mb-1">
+              Permit Holder
+            </label>
+            <input
+              type="text"
+              placeholder="Insert the permit holder name"
+              className="px-4 py-1.5 text-sm border border-gray-300 rounded-sm focus:ring-1 focus:ring-blue-500 focus:outline-none transition"
+            />
+          </div>
+        </form>
+
+        {/* Button */}
+        <div className="mt-10 md:ml-3">
+          <button
+            type="submit"
+            className="px-3 py-1.5 border text-slate-400 font-semibold border-blue-300 rounded-sm hover:bg-blue-700 transition duration-300 shadow-sm"
+          >
+            Search
+          </button>
         </div>
       </div>
     </div>
