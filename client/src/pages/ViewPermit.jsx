@@ -70,23 +70,16 @@ function ViewPermit() {
                         <span className="font-semibold text-slate-800">
                           Surname:
                         </span>{" "}
-                        {data.surname.toUpperCase()}
+                        {data.surname.toUpperCase()}{" "}
                       </div>
-                      {data.middleName && (
-                        <div>
-                          <span className="font-semibold text-slate-800">
-                            Middle Name:
-                          </span>{" "}
-                          {data.middleName.charAt(0).toUpperCase() +
-                            data.middleName.slice(1)}
-                        </div>
-                      )}
                       <div>
                         <span className="font-semibold text-slate-800">
                           First Name:
                         </span>{" "}
                         {data.firstName.charAt(0).toUpperCase() +
-                          data.firstName.slice(1)}
+                          data.firstName.slice(1)}{" "}
+                        {data.middleName.charAt(0).toUpperCase() +
+                          data.middleName.slice(1)}
                       </div>
                       <div>
                         <span className="font-semibold text-slate-800">
