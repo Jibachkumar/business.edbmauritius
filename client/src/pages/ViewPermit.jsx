@@ -131,7 +131,8 @@ function ViewPermit() {
                       <span className="font-semibold text-slate-800">
                         Gender:
                       </span>{" "}
-                      {data.gender}
+                      {data.gender.charAt(0).toUpperCase() +
+                        data.gender.slice(1)}
                     </div>
                   </div>
                   <div className="text-sm font-[Arial]">
