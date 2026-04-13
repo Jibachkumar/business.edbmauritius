@@ -78,8 +78,9 @@ function ViewPermit() {
                         </span>{" "}
                         {data.firstName.charAt(0).toUpperCase() +
                           data.firstName.slice(1)}{" "}
-                        {data.middleName.charAt(0).toUpperCase() +
-                          data.middleName.slice(1)}
+                        {data.middleName &&
+                          data.middleName.charAt(0).toUpperCase() +
+                            data.middleName.slice(1)}
                       </div>
                       <div>
                         <span className="font-semibold text-slate-800">
