@@ -76,8 +76,7 @@ function ViewPermit() {
                         <span className="font-semibold text-slate-800">
                           First Name:
                         </span>{" "}
-                        {data.firstName.charAt(0).toUpperCase() +
-                          data.firstName.slice(1)}{" "}
+                        {data.firstName.toUpperCase()}
                         {data.middleName &&
                           data.middleName.charAt(0).toUpperCase() +
                             data.middleName.slice(1)}
