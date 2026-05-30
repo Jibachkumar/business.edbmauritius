@@ -86,7 +86,7 @@ function ViewPermit() {
                         <span className="font-semibold text-slate-800">
                           Nationality:
                         </span>{" "}
-                        Nepalese
+                        Malagasy
                       </div>
                     </div>
                   </div>
